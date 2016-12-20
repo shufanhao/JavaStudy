@@ -25,6 +25,6 @@ public class JAXBTest {
         //Xml convert to Java Object
         String xml = "<boy><name>David</name></boy>";
         Boy boy1 = (Boy) unmarshaller.unmarshal(new StringReader(xml));
-        System.out.println(boy1.name);
+        System.out.println(boy1.getName());
     }
 }
