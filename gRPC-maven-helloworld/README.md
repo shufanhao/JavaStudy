@@ -2,17 +2,17 @@
 
 
 HelloWorld code is based on the quick start at:
-http://www.grpc.io/docs/
+http://www.grpc.io/docs/quickstart/java.html
 
 The purpose of this test was to see it build with maven, based on instructions on how to construct the POM plugins and depencies at at: https://github.com/grpc/grpc-java
 
-
-Clone this respositry from github and then run:
+##Frist example HelloWord
+1 Clone this respositry from github and then run:
 ```
 mvn clean package
 ```
 
-Note the hello_world.proto file defined the gRPC service at:
+2 Note the hello_world.proto file defined the gRPC service at:
 ```
 src/main/proto/hello_world.proto
 ```
@@ -25,7 +25,7 @@ target/generated-sources
 
 protoc binary will need to be available in your PATH
 
-To run the server, from the root of the cloned repository run:
+3 To run the server, from the root of the cloned repository run:
 ```
 java -cp target/grpctest-1.0-SNAPSHOT-jar-with-dependencies.jar org.jpdna.grpchello.HelloWorldServer
 ````
@@ -35,7 +35,7 @@ you should see:
 INFO: Server started, listening on 50051
 ```
 
-Next run the client:
+4 Next run the client:
 ```
 java -cp target/grpctest-1.0-SNAPSHOT-jar-with-dependencies.jar org.jpdna.grpchello.HelloWorldClient 
 ```
@@ -47,4 +47,28 @@ INFO: Will try to greet world ...
 Nov 22, 2015 7:20:56 PM org.jpdna.grpchello.HelloWorldClient greet
 INFO: Greeting: Hello world
 ```
+##Secod example RouteGuide
+Reference http://www.grpc.io/docs/tutorials/basic/java.html 
 
+In my code, because I did not download json library, so I need init the Features list,
+so my code is different from the java-grpc code.
+
+1 Run
+```
+mvn clean package
+```
+
+2 Note the route_guide.proto file defined the gRPC service at:
+```
+src/main/proto/route_guide.proto
+```
+
+3 To run the server
+```
+java -cp target/grpctest-1.0-SNAPSHOT-jar-with-dependencies.jar org.jpdna.routeguide.RouteGuideServer
+```
+
+4 To run the client
+```
+java -cp target/grpctest-1.0-SNAPSHOT-jar-with-dependencies.jar org.jpdna.routeguide.RouteGuideClient
+```
