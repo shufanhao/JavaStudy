@@ -36,6 +36,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -58,31 +60,22 @@ public class RouteGuideUtil {
     return location.getLongitude() / COORD_FACTOR;
   }
 
-  /**
-   * Gets the default features file from classpath.
+  /*
+  * init the features list
    */
-//  public static URL getDefaultFeaturesFile() {
-//    return RouteGuideServer.class.getResource("route_guide_db.json");
-//  }
-//
-//  /**
-//   * Parses the JSON input file containing the list of features.
-//   */
-//  public static List<Feature> parseFeatures(URL file) throws IOException {
-//    InputStream input = file.openStream();
-//    try {
-//      Reader reader = new InputStreamReader(input);
-//      try {
-//        FeatureDatabase.Builder database = FeatureDatabase.newBuilder();
-//        JsonFormat.parser().merge(reader, database);
-//        return database.getFeatureList();
-//      } finally {
-//        reader.close();
-//      }
-//    } finally {
-//      input.close();
-//    }
-//  }
+  public static Collection<Feature> initFeatures() {
+    Collection<Feature> features = new ArrayList<Feature>(10);
+    for(int i=0; i < 10; i++) {
+      int latiude = 407838351 + i*1000000;
+      int longtiude = -746143763 + i*1000000;
+      String locationExample = "Patriots Path, Mendham, NJ 0794" + Integer.toString(i) + "USA";
+      Point location = Point.newBuilder().setLatitude(latiude).setLongitude(longtiude).build();
+      Feature feature = Feature.newBuilder().setName(locationExample)
+              .setLocation(location).build();
+      features.add(feature);
+    }
+    return features;
+  }
 
   /**
    * Indicates whether the given feature exists (i.e. has a valid name).
