@@ -1,0 +1,5 @@
+// add all subproject
+rootProject.name = 'GradleStudy'
+include 'web'
+include 'model'
+include 'repository'
