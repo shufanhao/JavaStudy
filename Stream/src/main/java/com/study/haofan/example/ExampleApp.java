@@ -66,6 +66,7 @@ public class ExampleApp {
     interface MyInterface<T, R> {
         R strategy(T t, R r);
     }
+
     public static void test(MyInterface<String, List> inter) {
         List<String> list = inter.strategy("hello", new ArrayList());
         System.out.println(list);

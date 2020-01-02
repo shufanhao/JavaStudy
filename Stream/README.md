@@ -1,4 +1,5 @@
-# Lambda
+# Lambda 
+https://www.imooc.com/video/20778
 ##  1 What is lambda  and why 
 #### 1.1 what
  - lambda 表达式称为箭头函数，匿名函数，闭包
