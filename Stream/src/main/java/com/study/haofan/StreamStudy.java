@@ -75,6 +75,7 @@ public class StreamStudy {
         // map()中间操作，map()方法接收一个Functional 接口
         accountList = accountList.stream().map(x -> "梁山好汉：" + x).collect(Collectors.toList());
         accountList.forEach(System.out::println);
+        accountList.forEach(System.out::println);
 
         // filter 过滤
         accountList = accountList.stream().filter(x -> x.length() > 8).collect(Collectors.toList());
